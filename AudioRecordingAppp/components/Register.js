@@ -17,6 +17,7 @@ const Register = ({ navigation }) => {
 
       await AsyncStorage.setItem('user', JSON.stringify(user));
 
+      alert('Registration successful!');
       navigation.navigate('Login');
     } catch (error) {
       alert('An error occurred while registering');

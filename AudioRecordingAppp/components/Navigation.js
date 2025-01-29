@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../components/Login';
@@ -9,9 +9,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Stack = createStackNavigator();
 
 const Navigation = () => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkLoginStatus = async () => {
       try {
         const storedUser = await AsyncStorage.getItem('user');

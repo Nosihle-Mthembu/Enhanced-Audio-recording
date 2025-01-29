@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = async () => {
     try {
@@ -12,6 +13,7 @@ const Login = ({ navigation }) => {
       const user = JSON.parse(storedUser);
 
       if (user.email === email && user.password === password) {
+        setIsLoggedIn(true);
         navigation.navigate('Home');
       } else {
         alert('Invalid email or password');
